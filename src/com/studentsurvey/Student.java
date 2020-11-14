@@ -16,7 +16,6 @@ import java.util.Random;
 
 @Entity(name="Student")
 @Table
-@NamedQuery(name="Student.findAll", query="SELECT c FROM Student c")
 @XmlRootElement
 public class Student {
 	@Id 
