@@ -19,9 +19,10 @@ import java.util.Random;
 @NamedQuery(name="Student.findAll", query="SELECT c FROM Student c")
 @XmlRootElement
 public class Student {
-	@Id @GeneratedValue(strategy=GenerationType.AUTO) long id;
+	@Id 
+	@GeneratedValue(strategy=GenerationType.AUTO) long id;
     private String first_name;
-	private String last_name;
+    private String last_name;
     private String address;
     private String zip;
     private String city;
