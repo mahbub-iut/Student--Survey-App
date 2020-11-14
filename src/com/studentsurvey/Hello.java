@@ -33,14 +33,16 @@ public class Hello {
 			 EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "surveywebjpa" );
 		      
 		      EntityManager entitymanager = emfactory.createEntityManager( );
+			 entitymanager.getTransaction( ).begin( );
+		  
 			/*TypedQuery<Student> query =
 				      entitymanager.createNamedQuery("Student.findAll", Student.class);
 				  List<Student> results = query.getResultList();*/
+			entitymanager.close( );
+		      emfactory.close( );
+			TypedQuery<Student> query = entitymanager.createQuery("SELECT h FROM Student h ", Student.class);
+    return query.getResultList();
 			
-			 Query query = entitymanager.
-      createQuery("Select c from Student c");
-      List<Student> list = query.getResultList();
-				  return list;
 			}
 
 
