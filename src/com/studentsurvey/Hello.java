@@ -40,9 +40,10 @@ public class Hello {
 				  List<Student> results = query.getResultList();*/
 			
 			TypedQuery<Student> query = entitymanager.createQuery("SELECT h FROM Student h ", Student.class);
-    return query.getResultList();
-			entitymanager.close( );
-		      emfactory.close( );
+			
+			return query.getResultList();
+			
+	
 			
 			}
 
@@ -67,6 +68,3 @@ public class Hello {
 
 		
 	}
-
-
-
