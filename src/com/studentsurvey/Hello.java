@@ -29,7 +29,7 @@ public class Hello {
 		@GET
 		@Path("/all")
 		@Produces("application/json")
-		public  List<Student> getall (){
+		public  List<Employee> getall (){
 			 EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "surveywebjpa" );
 		      
 		      EntityManager entitymanager = emfactory.createEntityManager( );
