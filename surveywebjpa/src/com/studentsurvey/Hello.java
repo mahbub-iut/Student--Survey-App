@@ -48,27 +48,6 @@ public class Hello {
 			}
 
 
-		@GET
-		@Path("/allsurvey")
-		@Produces("application/json")
-		public  List<Student> getallsurvey (){
-			 EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "surveywebjpa" );
-		      
-		      EntityManager entitymanager = emfactory.createEntityManager( );
-			 entitymanager.getTransaction( ).begin( );
-		  
-			/*TypedQuery<Student> query =
-				      entitymanager.createNamedQuery("Student.findAll", Student.class);
-				  List<Student> results = query.getResultList();*/
-			
-			TypedQuery<Student> query = entitymanager.createQuery("SELECT h FROM Student h ", Student.class);
-			
-			return query.getResultList();
-			
-	
-			
-			}
-
 	
 		
 		
