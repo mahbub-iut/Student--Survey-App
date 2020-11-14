@@ -38,10 +38,11 @@ public class Hello {
 			/*TypedQuery<Student> query =
 				      entitymanager.createNamedQuery("Student.findAll", Student.class);
 				  List<Student> results = query.getResultList();*/
-			entitymanager.close( );
-		      emfactory.close( );
+			
 			TypedQuery<Student> query = entitymanager.createQuery("SELECT h FROM Student h ", Student.class);
     return query.getResultList();
+			entitymanager.close( );
+		      emfactory.close( );
 			
 			}
 
