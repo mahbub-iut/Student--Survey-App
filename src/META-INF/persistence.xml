@@ -7,8 +7,8 @@
 		<class>com.studentsurvey.Employee</class>
 	<properties>
 		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://35.226.193.225 :3306/survey"/>
-         <property name="javax.persistence.jdbc.user" value="gmuswe645"/>
-         <property name="javax.persistence.jdbc.password" value="gmuswe645"/>
+         <property name="javax.persistence.jdbc.user" value="gmu645"/>
+         <property name="javax.persistence.jdbc.password" value="gmus645"/>
          <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 		<property name="eclipselink.logging.level" value="FINE"/>
          <property name="eclipselink.ddl-generation" value="create-tables"/>
