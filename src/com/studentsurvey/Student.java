@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-@Entity
+@Entity(name="Student")
 @Table
 @NamedQuery(name="Student.findAll", query="SELECT c FROM Student c")
 @XmlRootElement
