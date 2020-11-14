@@ -1,4 +1,6 @@
 package com.studentsurvey;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import org.hibernate.SessionFactory;
 @Entity
 @Table
 @NamedQuery(name="Country.findAll", query="SELECT c FROM Student c") 
@@ -26,6 +29,8 @@ public class Student {
     private String tel_num;
     private String email;
     private String dos;
+    @Column
+    @ElementCollection(targetClass=String.class)
     private List<String> likings;
     private String interested;   
     private String likelihood;
