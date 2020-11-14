@@ -14,14 +14,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-@Entity(name="Student")
-@Table
+@Entity
 @XmlRootElement
 public class Student {
-	@Id 
-	@GeneratedValue(strategy=GenerationType.AUTO) long id;
+	@Id @GeneratedValue
     private String first_name;
-    private String last_name;
+	private String last_name;
     private String address;
     private String zip;
     private String city;
