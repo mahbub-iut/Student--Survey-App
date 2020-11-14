@@ -1,4 +1,4 @@
-import com.studentsurvey;
+package com.studentsurvey;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import com.studentsurvey.*;
