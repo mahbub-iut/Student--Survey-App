@@ -29,8 +29,6 @@ public class Student {
     private String tel_num;
     private String email;
     private String dos;
-    @Column
-    @ElementCollection(targetClass=String.class)
     private List<String> likings;
     private String interested;   
     private String likelihood;
