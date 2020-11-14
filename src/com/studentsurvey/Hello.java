@@ -39,7 +39,7 @@ public class Hello {
 				      entitymanager.createNamedQuery("Student.findAll", Student.class);
 				  List<Student> results = query.getResultList();*/
 			
-			TypedQuery<Student> query = entitymanager.createQuery("SELECT h FROM Student h ", Student.class);
+			TypedQuery<Employee> query = entitymanager.createQuery("SELECT h FROM Employee h ", Employee.class);
 			
 			return query.getResultList();
 			
