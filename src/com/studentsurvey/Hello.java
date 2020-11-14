@@ -34,7 +34,7 @@ public class Hello {
 		      
 		      EntityManager entitymanager = emfactory.createEntityManager( );
 			TypedQuery<Student> query =
-				      entitymanager.createNamedQuery("Country.findAll", Student.class);
+				      entitymanager.createNamedQuery("Student.findAll", Student.class);
 				  List<Student> results = query.getResultList();
 				  return results;
 			}
