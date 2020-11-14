@@ -87,7 +87,7 @@ public class Hello {
 		      entitymanager.close( );
 		      emfactory.close( );
 			
-			return "HI HI post jason"+p.toString();
+			return "he"+p.toString();
 		}
 
 		
