@@ -16,11 +16,7 @@ import java.util.Random;
 
 @Entity
 @Table
-@NamedQueries({
-   @NamedQuery(name="Student.findAll", query="SELECT c FROM Student c"),
-    @NamedQuery(name="...", query="..."),
-}) 
-
+@NamedQuery(name="Student.findAll", query="SELECT c FROM Student c")
 @XmlRootElement
 public class Student {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO) long id;
