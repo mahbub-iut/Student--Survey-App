@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import org.hibernate.SessionFactory;
+
 @Entity
 @Table
 @NamedQuery(name="Country.findAll", query="SELECT c FROM Student c") 
