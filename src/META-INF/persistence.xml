@@ -7,7 +7,7 @@
 		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://gmutestdb.cvvtyvqnwxhb.us-east-2.rds.amazonaws.com:3306/survey"/>
          <property name="javax.persistence.jdbc.user" value="gmutestdb"/>
          <property name="javax.persistence.jdbc.password" value="gmutestdb"/>
-         <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+         <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 		<property name="eclipselink.logging.level" value="FINE"/>
          <property name="eclipselink.ddl-generation" value="create-tables"/>
          <property name="eclipselink.ddl-generation.output-mode" value="database" />
