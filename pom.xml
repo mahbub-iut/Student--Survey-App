@@ -6,25 +6,14 @@
   <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
-    <resources>
-     <resource>
-       <directory>/src/META_INF</directory>
-     </resource>
-
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
+    
     <plugins>
 
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.3</version>
         <configuration>
-          <warSourceDirectory>/*</warSourceDirectory>
+          <warSourceDirectory>WebContent</warSourceDirectory>
         </configuration>
       </plugin>
 <plugin>
