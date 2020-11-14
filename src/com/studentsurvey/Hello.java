@@ -21,7 +21,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.core.Application;
 import javax.xml.bind.*;
-
+import javax.persistence.Query;
 @Path("/surveys")
 public class Hello {
 
@@ -33,10 +33,14 @@ public class Hello {
 			 EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "surveywebjpa" );
 		      
 		      EntityManager entitymanager = emfactory.createEntityManager( );
-			TypedQuery<Student> query =
+			/*TypedQuery<Student> query =
 				      entitymanager.createNamedQuery("Student.findAll", Student.class);
-				  List<Student> results = query.getResultList();
-				  return results;
+				  List<Student> results = query.getResultList();*/
+			
+			 Query query = entitymanager.
+      createQuery("Select c from Student c");
+      List<Student> list = query.getResultList();
+				  return list;
 			}
 
 
