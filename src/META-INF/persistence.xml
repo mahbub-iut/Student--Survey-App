@@ -6,9 +6,9 @@
 	<class>com.studentsurvey.Student</class>
 		<class>com.studentsurvey.Employee</class>
 	<properties>
-		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://gmutestdb.cvvtyvqnwxhb.us-east-2.rds.amazonaws.com:3306/survey"/>
-         <property name="javax.persistence.jdbc.user" value="gmutestdb"/>
-         <property name="javax.persistence.jdbc.password" value="gmutestdb"/>
+		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://35.226.193.225 :3306/survey"/>
+         <property name="javax.persistence.jdbc.user" value="gmuswe645"/>
+         <property name="javax.persistence.jdbc.password" value="gmuswe645"/>
          <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 		<property name="eclipselink.logging.level" value="FINE"/>
          <property name="eclipselink.ddl-generation" value="create-tables"/>
