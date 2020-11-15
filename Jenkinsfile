@@ -6,12 +6,16 @@ pipeline{
 		 unique_Id = UUID.randomUUID().toString()
 		GOOGLE_APPLICATION_CREDENTIALS    = 'gsa-key.json'
 		
+		
 	}
 	stages{
 		stage("Building jar"){
 			steps{
 				script{
+					
 					checkout scm
+					sh 'rm -rf target/*.war'
+					sh 'mvn clean package'
 					sh 'mvn clean install'
 					sh 'echo ${BUILD_TIMESTAMP}'
 					sh 'docker login  -u gmu645 --password-stdin < ~/my_password '

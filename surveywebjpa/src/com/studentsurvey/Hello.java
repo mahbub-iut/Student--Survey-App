@@ -87,7 +87,11 @@ public class Hello {
 		      entitymanager.close( );
 		      emfactory.close( );
 			
+<<<<<<< HEAD
 			return "jason Data entered "+p.toString();
+=======
+			return "jason Data value "+p.toString();
+>>>>>>> branch 'master' of https://github.com/mahbub-iut/swe645rest.git
 		}
 
 		
