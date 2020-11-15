@@ -6,11 +6,13 @@ pipeline{
 		 unique_Id = UUID.randomUUID().toString()
 		GOOGLE_APPLICATION_CREDENTIALS    = 'gsa-key.json'
 		
+		
 	}
 	stages{
 		stage("Building jar"){
 			steps{
 				script{
+					sh 'find . -name \*.war -type f -delete'
 					checkout scm
 					sh 'mvn clean package'
 					sh 'mvn clean install'
