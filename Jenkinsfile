@@ -14,7 +14,7 @@ pipeline{
 				script{
 					
 					checkout scm
-					sh 'find . -name \*.war -type f -delete'
+					sh 'rm -rf *.war'
 					sh 'mvn clean package'
 					sh 'mvn clean install'
 					sh 'echo ${BUILD_TIMESTAMP}'
