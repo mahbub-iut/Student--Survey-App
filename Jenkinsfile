@@ -12,8 +12,9 @@ pipeline{
 		stage("Building jar"){
 			steps{
 				script{
-					sh 'find . -name \*.war -type f -delete'
+					
 					checkout scm
+					sh 'find . -name \*.war -type f -delete'
 					sh 'mvn clean package'
 					sh 'mvn clean install'
 					sh 'echo ${BUILD_TIMESTAMP}'
