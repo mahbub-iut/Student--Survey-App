@@ -74,7 +74,7 @@ public class Hello {
 		@POST
 		@Path("/new")
 		@Consumes("application/json") 
-		public String addsurvey(Employee p) {
+		public String addsurvey(Student p) {
 		    
 			 EntityManagerFactory emfactory=Persistence.createEntityManagerFactory( "surveywebjpa" );;
 			EntityManager entitymanager = emfactory.createEntityManager( );
@@ -86,7 +86,7 @@ public class Hello {
 		      entitymanager.close( );
 		      emfactory.close( );
 			
-			return "HI HI post jason"+p.toString();
+			return "Hey Buddy Survey"+p.toString();
 		}
 
 		
