@@ -14,8 +14,6 @@ pipeline{
 				script{
 					
 					checkout scm
-					sh 'rm -rf target/*.war'
-					sh 'mvn clean package'
 					sh 'mvn clean install'
 					sh 'echo ${BUILD_TIMESTAMP}'
 					sh 'docker login  -u gmu645 --password-stdin < ~/my_password '
