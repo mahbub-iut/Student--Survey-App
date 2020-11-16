@@ -9,7 +9,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.TypedQuery;
 import javax.xml.bind.annotation.XmlRootElement;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
