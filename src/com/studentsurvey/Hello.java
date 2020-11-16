@@ -46,7 +46,8 @@ public class Hello {
 	
 			
 			}
-	
+
+
 		@GET
 		@Path("/allsurvey")
 		@Produces("application/json")
@@ -69,8 +70,8 @@ public class Hello {
 			}
 
 	
-
-
+		
+		
 		@POST
 		@Path("/new")
 		@Consumes("application/json") 
@@ -86,7 +87,7 @@ public class Hello {
 		      entitymanager.close( );
 		      emfactory.close( );
 			
-			return "New Survey Entered "+p.toString();
+			return "he"+p.toString();
 		}
 
 		
