@@ -77,7 +77,7 @@ public class Hello {
 		@Consumes("application/json") 
 		public String addsurvey(Student p) {
 		    
-			 EntityManagerFactory emfactory=Persistence.createEntityManagerFactory( "surveywebjpa" );;
+			 EntityManagerFactory emfactory=Persistence.createEntityManagerFactory( "surveywebjpa" );
 			EntityManager entitymanager = emfactory.createEntityManager( );
 		      entitymanager.getTransaction( ).begin( );
 		  
