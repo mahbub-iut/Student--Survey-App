@@ -35,14 +35,14 @@ public class Student {
 	public String getFirstName() {
 		return first_name;
 	}
-	public void setFirstName(String firstName) {
-		this.first_name = firstName;
+	public void setFirstName(String first_name) {
+		this.first_name = first_name;
 	}
 	public String getLastName() {
 		return last_name;
 	}
-	public void setLastName(String lastName) {
-		this.last_name = lastName;
+	public void setLastName(String last_name) {
+		this.last_name = last_name;
 	}
 	public String getAddress() {
 		return address;
@@ -53,8 +53,8 @@ public class Student {
 	public String getZipcode() {
 		return zip;
 	}
-	public void setZipcode(String zipcode) {
-		this.zip = zipcode;
+	public void setZipcode(String zip) {
+		this.zip = zip;
 	}
 	public String getCity() {
 		return city;
@@ -71,8 +71,8 @@ public class Student {
 	public String getPhone() {
 		return tel_num;
 	}
-	public void setPhone(String phone) {
-		this.tel_num = phone;
+	public void setPhone(String tel_num) {
+		this.tel_num = tel_num;
 	}
 	public String getEmail() {
 		return email;
@@ -83,27 +83,27 @@ public class Student {
 	public String getSurveyDate() {
 		return dos;
 	}
-	public void setSurveyDate(String date) {
-		this.dos = date;
+	public void setSurveyDate(String dos) {
+		this.dos = dos;
 	}
 	public List<String> getLikes() {
 		return likings;
 	}
-	public void setLikes(List<String> likes) {
-		this.likings = likes;
+	public void setLikes(List<String> likings) {
+		this.likings = likings;
 	}
 	public String getInterest() {
 		return interested;
 	}
-	public void setInterest(String interest) {
-		this.interested = interest;
+	public void setInterest(String interested) {
+		this.interested = interested;
 	}
 
 	public String getRecommend() {
 		return likelihood;
 	}
-	public void setRecommend(String recommend) {
-		this.likelihood = recommend;
+	public void setRecommend(String likelihood) {
+		this.likelihood = likelihood;
 	}
 
 	@Override
