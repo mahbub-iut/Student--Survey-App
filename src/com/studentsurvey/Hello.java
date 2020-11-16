@@ -86,7 +86,7 @@ public class Hello {
 		      entitymanager.close( );
 		      emfactory.close( );
 			
-			return "Hey Buddy Survey"+p.toString();
+			return "New Survey Entered "+p.toString();
 		}
 
 		
