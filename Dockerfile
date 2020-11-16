@@ -1,3 +1,3 @@
 
-FROM tomcat:9.0.39
+FROM tomcat:9
 COPY target/surveywebjpa-RestAPI.war /usr/local/tomcat/webapps/
