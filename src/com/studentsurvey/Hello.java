@@ -2,7 +2,7 @@ package com.studentsurvey;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import com.studentsurvey.*;
-
+import com.studentsurvey.Survey;
 import com.studentsurvey.Student;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -51,7 +51,7 @@ public class Hello {
 		@GET
 		@Path("/allsurvey")
 		@Produces("application/json")
-		public  List<Student> getallsurvey (){
+		public  List<Survey> getallsurvey (){
 			 EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "surveywebjpa" );
 		      
 		      EntityManager entitymanager = emfactory.createEntityManager( );
@@ -61,7 +61,7 @@ public class Hello {
 				      entitymanager.createNamedQuery("Student.findAll", Student.class);
 				  List<Student> results = query.getResultList();*/
 			
-			TypedQuery<Student> query = entitymanager.createQuery("SELECT h FROM Student h ", Student.class);
+			TypedQuery<Survey> query = entitymanager.createQuery("SELECT h FROM Student h ", Survey.class);
 			
 			return query.getResultList();
 			

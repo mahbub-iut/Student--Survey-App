@@ -4,6 +4,7 @@
 	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>com.studentsurvey.Student</class>
 		<class>com.studentsurvey.Employee</class>
+		<class>com.studentsurvey.Survey</class>
 	<properties>
 		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://35.226.193.225 :3306/survey"/>
          <property name="javax.persistence.jdbc.user" value="root"/>
