@@ -48,7 +48,7 @@ public class Hello {
 			}
 
 
-		@GET
+		@GET    
 		@Path("/allsurvey")
 		@Produces("application/json")
 		public  List<Survey> getallsurvey (){
@@ -70,7 +70,7 @@ public class Hello {
 			}
 
 	
-		
+	
 		
 		@POST
 		@Path("/new")
@@ -87,7 +87,7 @@ public class Hello {
 		      entitymanager.close( );
 		      emfactory.close( );
 			
-			return "Survey Entered"+p.toString();
+			return "Survey Entered  updated message "+p.toString();
 		}
 
 		
