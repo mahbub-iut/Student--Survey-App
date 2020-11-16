@@ -24,4 +24,9 @@
     <servlet-name>JAX-RS Servlet</servlet-name>
     <url-pattern>/jaxrs/*</url-pattern>
   </servlet-mapping>
+   <welcome-file-list>  
+   <welcome-file>index.html</welcome-file>  
+   <welcome-file>default.html</welcome-file>  
+  </welcome-file-list>  
+  
 </web-app>
