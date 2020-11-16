@@ -61,7 +61,7 @@ public class Hello {
 				      entitymanager.createNamedQuery("Student.findAll", Student.class);
 				  List<Student> results = query.getResultList();*/
 			
-			TypedQuery<Survey> query = entitymanager.createQuery("SELECT h FROM Student h ", Survey.class);
+			TypedQuery<Survey> query = entitymanager.createQuery("SELECT h FROM Survey h ", Survey.class);
 			
 			return query.getResultList();
 			
