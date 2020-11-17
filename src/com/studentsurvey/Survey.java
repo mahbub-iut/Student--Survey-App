@@ -17,6 +17,11 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+
+/* Mahbubul Alam Palash & Taseef Rahman
+ * 
+ * entity class that represents Survey
+ */
 @Entity
 @Table
 @XmlRootElement

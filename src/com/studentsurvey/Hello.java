@@ -1,3 +1,9 @@
+
+/* Mahbubul Alam Palash & Taseef Rahman
+ * Class tht implements Rest API
+		 * 
+		 */
+
 package com.studentsurvey;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -48,6 +54,11 @@ public class Hello {
 			}
 
 
+		/* Mahbubul Alam Palash & Taseef Rahman
+		 * 
+		 * This method takes return all survey as JSON
+		 */
+
 		@GET    
 		@Path("/allsurvey")
 		@Produces("application/json")
@@ -70,7 +81,10 @@ public class Hello {
 			}
 
 	
-	
+	/* Mahbubul Alam Palash & Taseef Rahman
+	 * 
+	 * This method takes survey data as Jason maps with POJO and uses jpa persistence to enter into database in GKE Container
+	 */
 		
 		@POST
 		@Path("/new")
