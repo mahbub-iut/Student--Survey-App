@@ -101,7 +101,7 @@ public class Hello {
 		      entitymanager.close( );
 		      emfactory.close( );
 			
-			return "Survey Entered  updated message "+p.toString();
+			return "Survey Entered  updated  "+p.toString();
 		}
 
 		
