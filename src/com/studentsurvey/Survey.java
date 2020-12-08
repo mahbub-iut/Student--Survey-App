@@ -13,6 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.List;
+import org.apache.kafka.common.serialization.Deserializer;
+import org.apache.kafka.common.serialization.Serializer;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -25,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table
 @XmlRootElement
-public class Survey {
+public class Survey implements Serializer<Survey>, Deserializer<Survey> {
 
 
 	public Survey(Long id, String first_name, String last_name, String address, String zip, String city, String state,
@@ -149,4 +151,30 @@ public class Survey {
 				+ ", dos=" + dos + ", likings=" + likings + ", interested=" + interested + ", likelihood=" + likelihood
 				+ "]";
 	}
+	@Override
+	public byte[] serialize(String topic, Survey data) {
+		byte[] survey = null;
+		try {
+			survey = new ObjectMapper().writeValueAsBytes(data);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return survey;
+
+	}
+
+	@Override
+	public StudentRecord deserialize(String topic, byte[] data) {
+		ObjectMapper mapper = new ObjectMapper();
+		Survey surveys = null;
+		try {
+			surveys = mapper.readValue(data, Survey.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return surveys;
+	}
+
+}
 }
