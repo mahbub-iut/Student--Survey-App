@@ -59,7 +59,7 @@ public class Hello {
 			return "HI HI post jason"+p.toString();
 		}*/
 		
-		
+	@POST	
 	@Path("/new")
 	@Consumes("application/json") 
 	public String addsurvey(Student p) {
