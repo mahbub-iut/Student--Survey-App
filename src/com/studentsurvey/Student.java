@@ -1,22 +1,12 @@
 package com.studentsurvey;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.TypedQuery;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
-@Entity
+
+
 @XmlRootElement
-public class Student {
-	@Id @GeneratedValue
+public class Student{
 	  private Long id;
     private String first_name;
 	private String last_name;
@@ -28,7 +18,8 @@ public class Student {
     private String email;
     private String dos;
     private List<String> likings;
-    private String interested;   
+    private String interested;
+    
     private String likelihood;
     
 	public String getFirstName() {

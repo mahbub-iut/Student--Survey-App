@@ -96,7 +96,11 @@ Maven dependency file
     <artifactId>javax.json-api</artifactId>
     <version>1.1.4</version>
 </dependency>
-
+<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
+			<version>2.6.0</version>
+		</dependency>
     </dependencies>
 
 </project>
