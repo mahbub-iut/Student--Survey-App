@@ -5,6 +5,8 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
+import com.fasterxml.jackson.databind.ser.std.NumberSerializers.LongSerializer;
+
 import java.util.Properties;
 
 import static java.time.Duration.ofMillis;
@@ -14,6 +16,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.*;
 
 import java.util.*;
 @Path("/surveys")
@@ -59,12 +62,12 @@ public class Hello {
 			return "HI HI post jason"+p.toString();
 		}*/
 		
-		
+	@POST	
 	@Path("/new")
 	@Consumes("application/json") 
-	public String addsurvey(Student p) {
+	public String addsurvey(Survey p) {
 		 Properties settings = setUpproducerProperties();
-	     Producer<Long, Student> producer =  new KafkaProducer<>(settings);
+	     KafkaProducer<Long, Survey> producer = new KafkaProducer<Long, Survey>(settings);
 
 	        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 	            System.out.println("...Stopping Basic Producer...");
@@ -72,14 +75,13 @@ public class Hello {
 	        }));
 	 
 	        final String TOPIC = "survey-data-topic";
-			ProducerRecord<Long, Student> record = new ProducerRecord<Long, Student>(TOPIC, null, p);
+			ProducerRecord<Long, Survey> record = new ProducerRecord<Long, Survey>(TOPIC, null, p);
 			producer.send(record);
 			System.out.println("Send record#" + record);
 	
 		
 		return ""+p.toString();
 	}
-		
 		
 		
 		
@@ -99,10 +101,9 @@ public class Hello {
 			Properties settings = new Properties();
 			settings.put(ProducerConfig.CLIENT_ID_CONFIG, "basic-producer");
 			settings.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "35.238.147.164");
-			settings.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
-					"org.apache.kafka.common.serialization.StringSerializer");
-			settings.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
-					"org.apache.kafka.common.serialization.StringSerializer");
+			settings.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, LongSerializer.class.getName());
+			settings.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, Survey.class.getName());
+			settings.put(ProducerConfig.ACKS_CONFIG, "all");
 			return settings;
 		}
 

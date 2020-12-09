@@ -8,7 +8,7 @@ import java.util.List;
 
 @XmlRootElement
 public class StudentSurvey{
-	  private Long id;
+	  private Long surveyid;
     private String first_name;
 	private String last_name;
     private String address;
