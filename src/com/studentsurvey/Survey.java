@@ -16,18 +16,17 @@ import java.util.Random;
 import java.util.List;
 import org.apache.kafka.common.serialization.Deserializer;
 import org.apache.kafka.common.serialization.Serializer;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /* Mahbubul Alam Palash & Taseef Rahman
  * 
  * entity class that represents Survey
  */
-@Entity
-@Table
+
 @XmlRootElement
 public class Survey implements Serializer<Survey>, Deserializer<Survey> {
 
@@ -188,4 +187,8 @@ public class Survey implements Serializer<Survey>, Deserializer<Survey> {
 		Serializer.super.close();
 	}
 
+
+
 }
+
+
