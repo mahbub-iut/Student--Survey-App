@@ -77,15 +77,27 @@ public class Hello {
 	@GET
 	@Path("/all")
 	@Produces("application/json")
-	public  List<Student> getall (){
+	public  List<Survey> getall (){
 	setKafkaConsumer();
-	
+	try {
+    while (true) { 
+        ConsumerRecord<Long, Survey> record = consumer.poll(100); 
+        for (ConsumerRecord<Long, Survey> record : records) {
+			System.out.println("Received: " + record.key() + ":" + record.value());
+			Survey temp = (Survey) record.value();
+			sb.add(temp);
+			
+
+		}
+} finally {
+    consumer.close(); 
+}
 	
 	
 		
 		
 		
-		return null;
+		return sb;
 		
 
 		
@@ -129,6 +141,7 @@ public class Hello {
 			ProducerRecord<Long, Survey> record = new ProducerRecord<Long, Survey>(TOPIC, null, p1);
 			producer.send(record);
 			System.out.println("Send record#" + record);
+			producer.close();
 			return "Posted";
 	
 	}
