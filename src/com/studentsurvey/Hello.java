@@ -81,7 +81,7 @@ public class Hello {
 	setKafkaConsumer();
 	try {
     while (true) { 
-        ConsumerRecord<Long, Survey> record = consumer.poll(100); 
+         records = kafkaConsumer.poll(100); 
         for (ConsumerRecord<Long, Survey> record : records) {
 			System.out.println("Received: " + record.key() + ":" + record.value());
 			Survey temp = (Survey) record.value();
@@ -89,15 +89,19 @@ public class Hello {
 			
 
 		}
-} finally {
-    consumer.close(); 
+}
+	}
+	finally {
+
+		
+	kafkaConsumer.close(); 
+	return sb;
 }
 	
 	
 		
 		
 		
-		return sb;
 		
 
 		
