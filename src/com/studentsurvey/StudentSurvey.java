@@ -96,13 +96,12 @@ public class StudentSurvey{
 	public void setRecommend(String likelihood) {
 		this.likelihood = likelihood;
 	}
-
 	@Override
 	public String toString() {
-		return "StudentSurvey [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", address=" + address
-				+ ", zip=" + zip + ", city=" + city + ", state=" + state + ", tel_num=" + tel_num + ", email=" + email
-				+ ", dos=" + dos + ", likings=" + likings + ", interested=" + interested + ", likelihood=" + likelihood
-				+ "]";
+		return "StudentSurvey [surveyid=" + surveyid + ", first_name=" + first_name + ", last_name=" + last_name
+				+ ", address=" + address + ", zip=" + zip + ", city=" + city + ", state=" + state + ", tel_num="
+				+ tel_num + ", email=" + email + ", dos=" + dos + ", likings=" + likings + ", interested=" + interested
+				+ ", likelihood=" + likelihood + "]";
 	}
 
 

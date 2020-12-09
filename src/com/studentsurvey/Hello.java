@@ -1,43 +1,74 @@
 package com.studentsurvey;
 import javax.ws.rs.*;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.common.serialization.StringDeserializer;
-
-import com.fasterxml.jackson.databind.ser.std.NumberSerializers.LongSerializer;
-
-import java.util.Properties;
-
-import static java.time.Duration.ofMillis;
-import static java.util.Collections.singletonList;
-import static org.apache.kafka.clients.consumer.ConsumerConfig.*;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.*;
+import org.apache.kafka.common.serialization.LongDeserializer;
+import org.apache.kafka.common.serialization.LongSerializer;
 
 import java.util.*;
 @Path("/surveys")
 public class Hello {
 		
-	private static final String TOPIC = "survey-data-topic";
+	private static final String TOPIC_NAME = "survey-data-topic";
+	private static Hello instance = null;
+	public static final String SERVER = "35.2";
+	private Producer<Long, Survey> producer;
+	private KafkaConsumer<Long, Survey> kafkaConsumer;
+	private ConsumerRecords<Long, Survey> records;
+	List<String> studList =new ArrayList<String>();
+	List<Survey> sb =new ArrayList<Survey>();
+
+	/**
+	 * creating a singleton instance of database connection class
+	 * 
+	 * @return
+	 */
 
 	
+	private void setKafkaProducer() {
+		Properties producerProperties = new Properties();
+		producerProperties.put("bootstrap.servers",  "35.238.147.164:9093");
+		producerProperties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, LongSerializer.class.getName());
+		producerProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, Survey.class.getName());
+		producerProperties.put(ProducerConfig.ACKS_CONFIG, "all");
+		producer = new KafkaProducer<>(producerProperties);
+	}
+	
+	private void setKafkaConsumer() {
+		Properties consumerProperties = new Properties();
+		consumerProperties.put("bootstrap.servers",  "35.238.147.164:9093");
+		consumerProperties.put(ConsumerConfig.GROUP_ID_CONFIG, UUID.randomUUID().toString());
+		consumerProperties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, LongDeserializer.class.getName());
+		consumerProperties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, Survey.class.getName());
+		consumerProperties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+		consumerProperties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
+		consumerProperties.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, 10);
+		kafkaConsumer = new KafkaConsumer<>(consumerProperties);
+		kafkaConsumer.subscribe(Collections.singletonList(TOPIC_NAME));
+		
+	}
+	private Producer<Long, Survey> getKafkaProducer() {
+		return producer;
+	}
+
 	@GET
 	@Path("/all")
 	@Produces("application/json")
-	public  Student getall (){
-		 
-	  
-		/*TypedQuery<Student> query =
-			      entitymanager.createNamedQuery("Student.findAll", Student.class);
-			  List<Student> results = query.getResultList();*/
+	public  List<Student> getall (){
+	setKafkaConsumer();
+	
+	
+	
 		
 		
-		Student s =new Student();
-		return s;
+		
+		return null;
 		
 
 		
@@ -66,49 +97,26 @@ public class Hello {
 	@Path("/new")
 	@Consumes("application/json") 
 	public String addsurvey(Survey p) {
-		 Properties settings = setUpproducerProperties();
-	     KafkaProducer<Long, Survey> producer = new KafkaProducer<Long, Survey>(settings);
+		setKafkaProducer();
+	Producer<Long, Survey> producer = getKafkaProducer();
 
 	        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 	            System.out.println("...Stopping Basic Producer...");
 	            producer.close();
 	        }));
-	 
+	        Survey p1= new Survey();
+	        p1.setCity("dhaka");
 	        final String TOPIC = "survey-data-topic";
-			ProducerRecord<Long, Survey> record = new ProducerRecord<Long, Survey>(TOPIC, null, p);
+			ProducerRecord<Long, Survey> record = new ProducerRecord<Long, Survey>(TOPIC, null, p1);
 			producer.send(record);
 			System.out.println("Send record#" + record);
+			return "Posted";
 	
-		
-		return ""+p.toString();
 	}
 		
 		
 		
-		private static Properties setUpconsumerProperties() {
-			Properties settings = new Properties();
-			settings.put(GROUP_ID_CONFIG, "basic-consumer");
-			settings.put(BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-			settings.put(ENABLE_AUTO_COMMIT_CONFIG, "true");
-			settings.put(AUTO_COMMIT_INTERVAL_MS_CONFIG, "1000");
-			settings.put(AUTO_OFFSET_RESET_CONFIG, "earliest");
-			settings.put(KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-			settings.put(VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-			return settings;
-		}
 		
-		private static Properties setUpproducerProperties() {
-			Properties settings = new Properties();
-			settings.put(ProducerConfig.CLIENT_ID_CONFIG, "basic-producer");
-			settings.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "35.238.147.164");
-			settings.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, LongSerializer.class.getName());
-			settings.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, Survey.class.getName());
-			settings.put(ProducerConfig.ACKS_CONFIG, "all");
-			return settings;
-		}
 
 		
 	}
-
-
-
