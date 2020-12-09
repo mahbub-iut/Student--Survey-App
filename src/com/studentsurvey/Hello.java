@@ -17,6 +17,7 @@ public class Hello {
 		
 	private static final String TOPIC_NAME = "survey-data-topic";
 	private static Hello instance = null;
+
 	public static final String SERVER = "35.2";
 	private Producer<Long, Survey> producer;
 	private KafkaConsumer<Long, Survey> kafkaConsumer;
@@ -30,9 +31,25 @@ public class Hello {
 	 * @return
 	 */
 
+
+	/**
+	 * creating a singleton instance of database connection class
+	 * 
+	 * @return
+	 */
+	public static synchronized Hello getInstance() {
+		// if singleton instance is not available create an instance object
+		if (null == instance) {
+			instance = new Hello();
+		}
+		// else return the existing instance object
+		return instance;
+	}
+
 	
 	private void setKafkaProducer() {
 		Properties producerProperties = new Properties();
+
 		producerProperties.put("bootstrap.servers",  "35.238.147.164:9093");
 		producerProperties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, LongSerializer.class.getName());
 		producerProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, Survey.class.getName());
@@ -97,7 +114,9 @@ public class Hello {
 	@Path("/new")
 	@Consumes("application/json") 
 	public String addsurvey(Survey p) {
+
 		setKafkaProducer();
+
 	Producer<Long, Survey> producer = getKafkaProducer();
 
 	        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
