@@ -1,4 +1,7 @@
-# swe645HW3_restAPI
+# Student Survey App
+
+##Technologies Used: Angular2, Rest APi, Amazon AWS, GKE, Jenkins
+
 A single page web application built using Angular and Rest API
 
 Application was deployed in Kubernetes cluster in google cloud.
