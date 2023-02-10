@@ -1,6 +1,6 @@
 # Student Survey App
 
-Technologies Used: Angular2, Rest APi, Amazon AWS, GKE, Jenkins,Naven
+Technologies Used: Angular2, Rest APi, Amazon AWS, GKE, Jenkins,Maven
 
 A single page web application built using Angular and Rest API 
 
