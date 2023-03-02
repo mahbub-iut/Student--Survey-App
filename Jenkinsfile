@@ -2,7 +2,7 @@ pipeline{
 	agent any 
 	environment{
 		registry = "gmu645/surveyhw3"
-		DOCKERHUB_PASS = "soulmate.com"
+		DOCKERHUB_PASS = ""
 		 unique_Id = UUID.randomUUID().toString()
 		GOOGLE_APPLICATION_CREDENTIALS    = 'gsa-key.json'
 		
